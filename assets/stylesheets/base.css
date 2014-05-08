@@ -1,0 +1,16 @@
+body {
+  -webkit-tap-highlight-color: transparent;
+  color: #141E32;
+  font-family: 'Myriad Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 32px auto;
+  max-width: 648px;
+  padding: 0 32px;
+  text-rendering: optimizeLegibility;
+}
+
+@media all and (max-width: 648px) {
+  body {
+    margin: 4.494382022%;
+    padding: 0;
+  }
+}

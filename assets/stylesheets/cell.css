@@ -1,0 +1,31 @@
+.cell {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 33.334%;
+  height: 216px;
+  overflow: hidden;
+  padding: 0;
+  text-indent: -100%;
+  white-space: nowrap;
+  width: 33.334%;
+}
+
+.cell:nth-child(even) {
+  border-left: 2px solid #D0D2D6;
+  border-right: 2px solid #D0D2D6;
+}
+
+/* Cell Pieces */
+
+.cell.x { background-image: url('/assets/images/cross.svg'); }
+.cell.o { background-image: url('/assets/images/naught.svg'); }
+
+/* Unoccupied Cells */
+
+.cell:not(.occupied) { cursor: pointer; }
+
+.cell:not(.occupied):hover {
+  background-image: url('/assets/images/naught.svg');
+  background-size: 33.334%;
+  opacity: 0.5;
+}

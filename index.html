@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="assets/stylesheets/base.css" />
+    <link rel="stylesheet" href="assets/stylesheets/board.css" />
+    <link rel="stylesheet" href="assets/stylesheets/cell.css" />
+
+    <script src="assets/javascripts/board.js"></script>
+    <script src="assets/javascripts/player.js"></script>
+    <script src="assets/javascripts/strategy.js"></script>
+    <script src="assets/javascripts/actuator.js"></script>
+    <script src="assets/javascripts/game.js"></script>
+
+    <script>
+      window.requestAnimationFrame(function () {
+        new Game;
+      });
+    </script>
+  </head>
+
+  <body>
+    <main role="main">
+      <table id="board">
+        <tbody>
+          <tr>
+            <td class="cell" data-position="0"></td>
+            <td class="cell" data-position="1"></td>
+            <td class="cell" data-position="2"></td>
+          </tr>
+
+          <tr>
+            <td class="cell" data-position="3"></td>
+            <td class="cell" data-position="4"></td>
+            <td class="cell" data-position="5"></td>
+          </tr>
+
+          <tr>
+            <td class="cell" data-position="6"></td>
+            <td class="cell" data-position="7"></td>
+            <td class="cell" data-position="8"></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

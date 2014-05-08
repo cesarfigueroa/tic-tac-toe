@@ -1,0 +1,50 @@
+#board {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  width: 100%;
+}
+
+#board tr:not(:last-child) { border-bottom: 2px solid #D0D2D6; }
+
+/* End Message */
+
+#board.draw, #board.loss { cursor: pointer; }
+
+#board:before {
+  -moz-animation: message 0.65s 1;
+  -o-animation: message 0.65s 1;
+  -webkit-animation: message 0.65s 1;
+  animation: message 0.65s 1;
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 2em;
+  font-weight: bold;
+  height: 100%;
+  padding-top: calc(50% - 16px); /* minus half the font size */
+  position: absolute;
+  text-align: center;
+  text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+  width: 100%;
+}
+
+#board.draw:before { content: "It\2019s a tie! Try again?"; }
+#board.loss:before { content: 'You lose. Try again?'; }
+
+@-webkit-keyframes message {
+  from {
+    color: transparent;
+    background: transparent;
+    text-shadow: none;
+  }
+
+  to {
+    color: inherit;
+    background: rgba(255, 255, 255, 0.75);
+    text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+  }
+}
