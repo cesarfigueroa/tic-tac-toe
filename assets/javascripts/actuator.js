@@ -13,7 +13,7 @@ Actuator.prototype.sync = function () {
 
     if (this.board.isOccupied(index)) {
       cell.classList.add('occupied', this.board.getCell(index));
-      cell.innerText = this.board.getCell(index);
+      cell.textContent = this.board.getCell(index);
     }
   }
 };
