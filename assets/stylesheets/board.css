@@ -17,10 +17,10 @@
 #board.draw, #board.loss { cursor: pointer; }
 
 #board:before {
-  -moz-animation: message 0.65s 1;
-  -o-animation: message 0.65s 1;
-  -webkit-animation: message 0.65s 1;
-  animation: message 0.65s 1;
+  -moz-animation: message 0.5s 1;
+  -o-animation: message 0.5s 1;
+  -webkit-animation: message 0.5s 1;
+  animation: message 0.5s 1;
   background: rgba(255, 255, 255, 0.75);
   font-size: 2em;
   font-weight: bold;
