@@ -53,10 +53,6 @@ Game.prototype.bindEvents = function () {
     else { this.restart(); }
   }.bind(this));
 
-  window.requestAnimationFrame(function () {
-    this.actuator.render();
-  }.bind(this));
-
   window.addEventListener('resize', function () {
     this.actuator.render();
   }.bind(this));
