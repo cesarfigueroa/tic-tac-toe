@@ -1,6 +1,25 @@
 function Actuator (board) {
   this.board = board;
+
+  this.markup = {
+    board: document.getElementById('board')
+  };
 }
+
+Actuator.prototype.setup = function () {
+  this.bindEvents();
+  this.render();
+};
+
+Actuator.prototype.bindEvents = function () {
+  window.addEventListener('draw', function () {
+    this.markup.board.classList.add('draw');
+  }.bind(this));
+
+  window.addEventListener('loss', function () {
+    this.markup.board.classList.add('loss');
+  }.bind(this));
+};
 
 Actuator.prototype.render = function () {
   this.sync();

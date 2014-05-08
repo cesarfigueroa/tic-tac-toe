@@ -17,6 +17,8 @@ function Game () {
 
 Game.prototype.setup = function () {
   this.strategy.initialMove();
+  this.actuator.setup();
+
   this.bindEvents();
 };
 
@@ -24,8 +26,9 @@ Game.prototype.play = function (position) {
   if (this.board.isEmpty(position) && this.isOngoing()) {
     this.board.setCell(position);
     this.strategy.strategize();
-    this.dispatchEvents();
     this.actuator.render();
+
+    this.dispatchEvents();
   }
 };
 
@@ -56,14 +59,6 @@ Game.prototype.bindEvents = function () {
 
   window.addEventListener('resize', function () {
     this.actuator.render();
-  }.bind(this));
-
-  window.addEventListener('loss', function () {
-    this.markup.board.classList.add('loss');
-  }.bind(this));
-
-  window.addEventListener('draw', function () {
-    this.markup.board.classList.add('draw');
   }.bind(this));
 };
 
