@@ -17,15 +17,15 @@
 
 /* Cell Pieces */
 
-.cell.x { background-image: url('/assets/images/cross.svg'); }
-.cell.o { background-image: url('/assets/images/naught.svg'); }
+.cell.x { background-image: url('../images/cross.svg'); }
+.cell.o { background-image: url('../images/naught.svg'); }
 
 /* Unoccupied Cells */
 
 .cell:not(.occupied) { cursor: pointer; }
 
 .cell:not(.occupied):hover {
-  background-image: url('/assets/images/naught.svg');
+  background-image: url('../images/naught.svg');
   background-size: 33.334%;
   opacity: 0.5;
 }
