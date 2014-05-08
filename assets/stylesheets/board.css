@@ -20,6 +20,7 @@
   -moz-animation: message 0.5s 1;
   -o-animation: message 0.5s 1;
   -webkit-animation: message 0.5s 1;
+  -webkit-transform: translate3d(0, 0, 0);
   animation: message 0.5s 1;
   background: rgba(255, 255, 255, 0.75);
   font-size: 2em;
