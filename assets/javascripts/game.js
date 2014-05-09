@@ -27,7 +27,9 @@ Game.prototype.play = function (position) {
     this.strategy.strategize();
     this.actuator.render();
     this.dispatchEvents();
-  } else { this.restart(); }
+  } else if (this.isOver()) {
+    this.restart();
+  }
 };
 
 Game.prototype.isWon = function () {
