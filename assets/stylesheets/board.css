@@ -17,10 +17,10 @@
 #board.message { cursor: pointer; }
 
 #board:before {
-  -moz-animation: message 0.5s 1;
-  -webkit-animation: message 0.5s 1;
+  -moz-animation: message-open 0.5s 1;
+  -webkit-animation: message-open 0.5s 1;
   -webkit-transform: translate3d(0, 0, 0);
-  animation: message 0.5s 1;
+  animation: message-open 0.5s 1;
   background: rgba(255, 255, 255, 0.75);
   font-size: 2em;
   font-weight: bold;
@@ -35,7 +35,7 @@
 #board.draw:before { content: "It\2019s a tie! Try again?"; }
 #board.loss:before { content: 'You lose. Try again?'; }
 
-@-webkit-keyframes message {
+@-webkit-keyframes message-open {
   from {
     color: transparent;
     background: transparent;
