@@ -12,28 +12,44 @@
 
 #board tr:not(:last-child) { border-bottom: 2px solid #D0D2D6; }
 
-/* End Message */
-
-#board.message { cursor: pointer; }
+/* Messages */
 
 #board:before {
-  -moz-animation: message-open 0.5s 1;
-  -webkit-animation: message-open 0.5s 1;
   -webkit-transform: translate3d(0, 0, 0);
-  animation: message-open 0.5s 1;
-  background: rgba(255, 255, 255, 0.75);
   font-size: 2em;
   font-weight: bold;
-  height: 100%;
   padding-top: calc(50% - 16px); /* minus half the font size */
   position: absolute;
   text-align: center;
+}
+
+/* Open Message */
+
+#board.message { cursor: pointer; }
+
+#board.message:before {
+  -moz-animation: message-open 0.5s 1;
+  -webkit-animation: message-open 0.5s 1;
+  animation: message-open 0.5s 1;
+  background: rgba(255, 255, 255, 0.75);
+  height: 100%;
   text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
   width: 100%;
 }
 
 #board.draw:before { content: "It\2019s a tie! Try again?"; }
 #board.loss:before { content: 'You lose. Try again?'; }
+
+/* Close Message */
+
+#board:not(.message):before {
+  -moz-animation: message-close 0.5s 1;
+  -webkit-animation: message-close 0.5s 1;
+  animation: message-close 0.5s 1;
+  content: '';
+}
+
+/* Animations */
 
 @-moz-keyframes message-open {
   from {
@@ -58,5 +74,33 @@
   to {
     background: rgba(255, 255, 255, 0.75);
     text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+  }
+}
+
+@-moz-keyframes message-close {
+  from {
+    background: rgba(255, 255, 255, 0.75);
+    height: 100%;
+    text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+    width: 100%;
+  }
+
+  to {
+    background: transparent;
+    text-shadow: none;
+  }
+}
+
+@-webkit-keyframes message-close {
+  from {
+    background: rgba(255, 255, 255, 0.75);
+    height: 100%;
+    text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+    width: 100%;
+  }
+
+  to {
+    background: transparent;
+    text-shadow: none;
   }
 }
