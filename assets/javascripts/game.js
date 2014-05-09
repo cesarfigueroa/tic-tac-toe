@@ -13,13 +13,12 @@ function Game () {
   };
 
   this.setup();
+  this.bindEvents();
 }
 
 Game.prototype.setup = function () {
   this.strategy.initialMove();
-  this.actuator.setup();
-
-  this.bindEvents();
+  this.actuator.render();
 };
 
 Game.prototype.play = function (position) {
@@ -64,5 +63,7 @@ Game.prototype.dispatchEvents = function () {
 };
 
 Game.prototype.restart = function () {
-  window.location.reload();
+  this.board.reset();
+  this.actuator.reset();
+  this.setup();
 };

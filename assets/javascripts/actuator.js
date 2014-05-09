@@ -4,11 +4,8 @@ function Actuator (board) {
   this.markup = {
     board: document.getElementById('board')
   };
-}
 
-Actuator.prototype.setup = function () {
   this.bindEvents();
-  this.render();
 };
 
 Actuator.prototype.bindEvents = function () {
@@ -41,5 +38,21 @@ Actuator.prototype.adjustSpacing = function () {
   for (var index = 0; index < this.board.markup.cells.length; index++) {
     var cell = this.board.markup.cells[index];
     cell.style.height = cell.scrollWidth + 'px';
+  }
+};
+
+Actuator.prototype.reset = function () {
+  this.clearMessage();
+  this.clearCells();
+};
+
+Actuator.prototype.clearMessage = function () {
+  this.markup.board.classList.remove('message', 'loss', 'draw');
+};
+
+Actuator.prototype.clearCells = function () {
+  for (var index = 0; index < this.board.markup.cells.length; index++) {
+    this.board.markup.cells[index].classList.remove('occupied', 'x', 'o');
+    this.board.markup.cells[index].textContent = null;
   }
 };

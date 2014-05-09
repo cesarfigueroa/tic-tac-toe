@@ -42,6 +42,11 @@ Board.prototype.swapPlayers = function () {
   }
 };
 
+Board.prototype.reset = function () {
+  this.cells = [null, null, null, null, null, null, null, null, null]; // 9
+  this.swapPlayers();
+};
+
 Board.prototype.isOccupied = function (position) {
   return this.pieces.indexOf(this.getCell(position)) > -1;
 }
