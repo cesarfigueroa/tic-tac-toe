@@ -31,7 +31,7 @@
   -moz-animation: message-open 0.5s 1;
   -webkit-animation: message-open 0.5s 1;
   animation: message-open 0.5s 1;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   height: 100%;
   text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
   width: 100%;
@@ -59,7 +59,7 @@
   }
 
   to {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
   }
 }
@@ -72,14 +72,14 @@
   }
 
   to {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
   }
 }
 
 @-moz-keyframes message-close {
   from {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     height: 100%;
     text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
     width: 100%;
@@ -93,7 +93,7 @@
 
 @-webkit-keyframes message-close {
   from {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     height: 100%;
     text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
     width: 100%;
