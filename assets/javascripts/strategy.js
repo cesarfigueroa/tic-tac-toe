@@ -24,7 +24,7 @@ function Strategy (board) {
   ];
 
   this.opposingCorners = [8, 6, 2, 0];
-  this.strategicPositions = this.board.positions.corners.concat(this.board.positions.sides);
+  this.outerPositions = this.board.positions.corners.concat(this.board.positions.sides);
 }
 
 Strategy.prototype.strategize = function () {
@@ -36,7 +36,7 @@ Strategy.prototype.strategize = function () {
 };
 
 Strategy.prototype.initialMove = function () {
-  var randomPosition = Math.floor(Math.random() * (this.strategicPositions.length + 1));
+  var randomPosition = Math.floor(Math.random() * (this.outerPositions.length + 1));
   return this.board.setCell(randomPosition);
 };
 
@@ -97,9 +97,9 @@ Strategy.prototype.moveToOpposingCorner = function () {
 };
 
 Strategy.prototype.markStrategicPosition = function () {
-  for (var index = 0; index < this.strategicPositions.length; index++) {
-    if (this.board.isEmpty(this.strategicPositions[index])) {
-      return this.board.setCell(this.strategicPositions[index]);
+  for (var index = 0; index < this.outerPositions.length; index++) {
+    if (this.board.isEmpty(this.outerPositions[index])) {
+      return this.board.setCell(this.outerPositions[index]);
     }
   }
 };
