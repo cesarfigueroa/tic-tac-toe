@@ -19,11 +19,11 @@ Actuator.prototype.bindEvents = function () {
 };
 
 Actuator.prototype.render = function () {
-  this.sync();
+  this.updateCells();
   this.adjustSpacing();
 };
 
-Actuator.prototype.sync = function () {
+Actuator.prototype.updateCells = function () {
   [].map.call(this.board.markup.cells, function (element, index) {
     if (this.board.isOccupied(index)) {
       element.classList.add('occupied', this.board.getCell(index));
