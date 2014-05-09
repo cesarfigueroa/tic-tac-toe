@@ -30,7 +30,7 @@ Game.prototype.play = function (position) {
   } else { this.restart(); }
 };
 
-Game.prototype.isOver = function () {
+Game.prototype.isWon = function () {
   return this.strategy.adjacentPositions.some(function (positions, index) {
     var positions = positions.concat(this.strategy.winningPositions[index]);
     return this.board.belongsTo(this.board.players.computer, positions);
@@ -38,11 +38,11 @@ Game.prototype.isOver = function () {
 };
 
 Game.prototype.isDraw = function () {
-  return this.board.isFull() && !this.isOver();
+  return this.board.isFull() && !this.isWon();
 };
 
 Game.prototype.isOngoing = function () {
-  return !(this.isOver() || this.isDraw());
+  return !(this.isDraw() || this.isWon());
 };
 
 Game.prototype.bindEvents = function () {
@@ -61,7 +61,7 @@ Game.prototype.bindEvents = function () {
 };
 
 Game.prototype.dispatchEvents = function () {
-  if (this.isOver()) { window.dispatchEvent(this.events.loss); }
+  if (this.isWon()) { window.dispatchEvent(this.events.loss); }
   else if (this.isDraw()) { window.dispatchEvent(this.events.draw); }
 };
 
