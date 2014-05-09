@@ -16,9 +16,9 @@
 
 #board:before {
   -webkit-transform: translate3d(0, 0, 0);
-  font-size: 2em;
+  font-size: 2.93625em;
   font-weight: bold;
-  padding-top: calc(50% - 16px); /* minus half the font size */
+  padding-top: calc(50% - (7.25% / 2));
   position: absolute;
   text-align: center;
 }
@@ -102,5 +102,11 @@
   to {
     background: transparent;
     text-shadow: none;
+  }
+}
+
+@media all and (max-width: 648px) {
+  #board:before {
+    font-size: 7.25vw;
   }
 }
