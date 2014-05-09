@@ -6,7 +6,7 @@ function Game () {
   this.events = {
     loss: new Event('loss'),
     draw: new Event('draw')
-  }
+  };
 
   this.markup = {
     board: document.getElementById('board')
