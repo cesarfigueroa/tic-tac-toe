@@ -35,6 +35,19 @@
 #board.draw:before { content: "It\2019s a tie! Try again?"; }
 #board.loss:before { content: 'You lose. Try again?'; }
 
+@-moz-keyframes message-open {
+  from {
+    color: transparent;
+    background: transparent;
+    text-shadow: none;
+  }
+
+  to {
+    background: rgba(255, 255, 255, 0.75);
+    text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+  }
+}
+
 @-webkit-keyframes message-open {
   from {
     color: transparent;
