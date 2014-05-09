@@ -50,6 +50,11 @@ Game.prototype.bindEvents = function () {
     this.play(event.target.dataset.position);
   }.bind(this));
 
+  this.markup.board.addEventListener('touchend', function (event) {
+    event.preventDefault();
+    this.play(event.target.dataset.position);
+  }.bind(this));
+
   window.addEventListener('resize', function () {
     this.actuator.render();
   }.bind(this));
