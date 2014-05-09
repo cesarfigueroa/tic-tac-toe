@@ -45,6 +45,10 @@ Game.prototype.isOngoing = function () {
   return !(this.isDraw() || this.isWon());
 };
 
+Game.prototype.isOver = function () {
+  return !this.isOngoing();
+};
+
 Game.prototype.bindEvents = function () {
   this.markup.board.addEventListener('click', function (event) {
     this.play(event.target.dataset.position);
