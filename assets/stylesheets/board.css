@@ -44,7 +44,6 @@
   }
 
   to {
-    color: inherit;
     background: rgba(255, 255, 255, 0.75);
     text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
   }
