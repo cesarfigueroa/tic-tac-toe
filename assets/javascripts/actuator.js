@@ -24,21 +24,18 @@ Actuator.prototype.render = function () {
 };
 
 Actuator.prototype.sync = function () {
-  for (var index = 0; index < this.board.markup.cells.length; index++) {
-    var cell = this.board.markup.cells[index];
-
+  [].map.call(this.board.markup.cells, function (element, index) {
     if (this.board.isOccupied(index)) {
-      cell.classList.add('occupied', this.board.getCell(index));
-      cell.textContent = this.board.getCell(index);
+      element.classList.add('occupied', this.board.getCell(index));
+      element.textContent = this.board.getCell(index);
     }
-  }
+  }.bind(this));
 };
 
 Actuator.prototype.adjustSpacing = function () {
-  for (var index = 0; index < this.board.markup.cells.length; index++) {
-    var cell = this.board.markup.cells[index];
-    cell.style.height = cell.scrollWidth + 'px';
-  }
+  [].map.call(this.board.markup.cells, function (element) {
+    element.style.height = element.scrollWidth + 'px';
+  });
 };
 
 Actuator.prototype.reset = function () {
@@ -51,8 +48,8 @@ Actuator.prototype.clearMessage = function () {
 };
 
 Actuator.prototype.clearCells = function () {
-  for (var index = 0; index < this.board.markup.cells.length; index++) {
-    this.board.markup.cells[index].classList.remove('occupied', 'x', 'o');
-    this.board.markup.cells[index].textContent = null;
-  }
+  [].map.call(this.board.markup.cells, function (element) {
+    element.classList.remove('occupied', 'x', 'o');
+    element.textContent = null;
+  });
 };
