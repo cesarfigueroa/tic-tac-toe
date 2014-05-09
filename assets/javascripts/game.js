@@ -22,13 +22,12 @@ Game.prototype.setup = function () {
 };
 
 Game.prototype.play = function (position) {
-  if (this.board.isEmpty(position) && this.isOngoing()) {
+  if (this.isOngoing() && this.board.isEmpty(position)) {
     this.board.setCell(position);
     this.strategy.strategize();
     this.actuator.render();
-
     this.dispatchEvents();
-  }
+  } else { this.restart(); }
 };
 
 Game.prototype.isOver = function () {
@@ -48,8 +47,7 @@ Game.prototype.isOngoing = function () {
 
 Game.prototype.bindEvents = function () {
   this.markup.board.addEventListener('click', function (event) {
-    if (this.isOngoing()) { this.play(event.target.dataset.position); }
-    else { this.restart(); }
+    this.play(event.target.dataset.position);
   }.bind(this));
 
   window.addEventListener('resize', function () {
