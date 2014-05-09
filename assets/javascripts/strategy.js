@@ -36,7 +36,7 @@ Strategy.prototype.strategize = function () {
 };
 
 Strategy.prototype.initialMove = function () {
-  var randomPosition = Math.floor(Math.random() * (this.outerPositions.length + 1));
+  var randomPosition = Math.floor(Math.random() * this.board.cells.length);
   return this.board.setCell(randomPosition);
 };
 
