@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-#board.draw:before { content: "It\2019s a tie! Try again?"; }
+#board.draw:before { content: "It\2019s a tie! Play again?"; }
 #board.loss:before { content: 'You lose. Try again?'; }
 
 /* Close Message */
