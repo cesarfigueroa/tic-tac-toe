@@ -14,7 +14,7 @@
 
 /* End Message */
 
-#board.draw, #board.loss { cursor: pointer; }
+#board.message { cursor: pointer; }
 
 #board:before {
   -moz-animation: message 0.5s 1;

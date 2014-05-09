@@ -13,11 +13,11 @@ Actuator.prototype.setup = function () {
 
 Actuator.prototype.bindEvents = function () {
   window.addEventListener('draw', function () {
-    this.markup.board.classList.add('draw');
+    this.markup.board.classList.add('message', 'draw');
   }.bind(this));
 
   window.addEventListener('loss', function () {
-    this.markup.board.classList.add('loss');
+    this.markup.board.classList.add('message', 'loss');
   }.bind(this));
 };
 
