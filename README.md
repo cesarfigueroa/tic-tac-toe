@@ -2,7 +2,7 @@
 
 In 1993, Kevin Crowley and Robert S. Siegler devised a [strategy](http://en.wikipedia.org/wiki/Tic-tac-toe#Strategy) for playing a perfect game of Tic Tac Toe. This project is a JavaScript implementation of that strategy. You can play—and _try_ to beat it—in this nice [web interface](http://cesarfigueroa.org/tic-tac-toe/).
 
-![Tic Tac Toe UI](assets/images/screenshot.png)
+[![Tic Tac Toe UI](assets/images/screenshot.png)](http://cesarfigueroa.org/tic-tac-toe/)
 
 ---
 
