@@ -3,24 +3,24 @@ function Strategy (board) {
 
   this.adjacentPositions = [
     [0, 1], [0, 2], [1, 2], // top row
-    [3, 4], [3, 5], [4, 5], // middle row
-    [6, 7], [6, 8], [7, 8], // bottom row
     [0, 3], [0, 6], [3, 6], // left column
-    [1, 4], [1, 7], [4, 7], // middle column
-    [2, 5], [2, 8], [5, 8], // right column
     [0, 4], [0, 8], [4, 8], // left diagonal
-    [2, 4], [2, 6], [4, 6]  // right diagonal
+    [2, 4], [2, 6], [4, 6], // right diagonal
+    [3, 4], [3, 5], [4, 5], // middle row
+    [1, 4], [1, 7], [4, 7], // middle column
+    [6, 7], [6, 8], [7, 8], // bottom row
+    [2, 5], [2, 8], [5, 8]  // right column
   ];
 
   this.winningPositions = [
     2, 1, 0, // top row
-    5, 4, 3, // middle row
-    8, 7, 6, // bottom row
     6, 3, 0, // left column
-    7, 4, 1, // middle column
-    8, 5, 2, // right column
     8, 4, 0, // left diagonal
-    6, 4, 2  // right diagonal
+    6, 4, 2, // right diagonal
+    5, 4, 3, // middle row
+    7, 4, 1, // middle column
+    8, 7, 6, // bottom row
+    8, 5, 2  // right column
   ];
 
   this.opposingCorners = [8, 6, 2, 0];
