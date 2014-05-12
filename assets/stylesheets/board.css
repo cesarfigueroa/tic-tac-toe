@@ -23,6 +23,9 @@
   text-align: center;
 }
 
+#board.draw:before { content: "It\2019s a tie! Play again?"; }
+#board.loss:before { content: 'You lose. Play again?'; }
+
 /* Open Message */
 
 #board.message { cursor: pointer; }
@@ -36,9 +39,6 @@
   text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
   width: 100%;
 }
-
-#board.draw:before { content: "It\2019s a tie! Play again?"; }
-#board.loss:before { content: 'You lose. Try again?'; }
 
 /* Close Message */
 
