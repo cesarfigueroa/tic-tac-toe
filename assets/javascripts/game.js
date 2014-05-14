@@ -22,7 +22,7 @@ Game.prototype.setup = function () {
 };
 
 Game.prototype.play = function (position) {
-  if (this.isOngoing() && this.board.isEmpty(position)) {
+  if (position && this.board.isEmpty(position) && this.isOngoing()) {
     this.board.setCell(position);
     this.strategy.strategize();
     this.actuator.render();
