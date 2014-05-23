@@ -8,6 +8,10 @@ function Game () {
     draw: new Event('draw')
   };
 
+  this.settings = {
+    isFirst: false
+  };
+
   this.markup = {
     board: document.getElementById('board')
   };
@@ -17,7 +21,13 @@ function Game () {
 }
 
 Game.prototype.setup = function () {
-  this.strategy.initialMove();
+  if (this.settings.isFirst) {
+    this.board.setInitialPlayer('human');
+  } else {
+    this.board.setInitialPlayer('computer');
+    this.strategy.initialMove();
+  }
+
   this.actuator.render();
 };
 

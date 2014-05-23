@@ -13,9 +13,6 @@ function Board () {
     human: new Player('o')
   };
 
-  this.player = this.players.computer;
-  this.opponent = this.players.human;
-
   this.markup = {
     cells: document.getElementsByClassName('cell')
   };
@@ -32,19 +29,31 @@ Board.prototype.setCell = function (position) {
   }
 };
 
+Board.prototype.setPlayers = function (player, opponent) {
+  this.player = this.players[player];
+  this.opponent = this.players[opponent];
+};
+
 Board.prototype.swapPlayers = function () {
-  if (this.player == this.players.computer) {
-    this.player = this.players.human;
-    this.opponent = this.players.computer;
-  } else {
-    this.player = this.players.computer;
-    this.opponent = this.players.human;
+  switch (this.player) {
+    case this.players.human:
+      return this.setPlayers('computer', 'human');
+    case this.players.computer:
+      return this.setPlayers('human', 'computer');
+  }
+};
+
+Board.prototype.setInitialPlayer = function (player) {
+  switch (player) {
+    case 'human':
+      return this.setPlayers('human', 'computer');
+    case 'computer':
+      return this.setPlayers('computer', 'human');
   }
 };
 
 Board.prototype.reset = function () {
   this.cells = this.cells.map(function () { return null; });
-  this.swapPlayers();
 };
 
 Board.prototype.isOccupied = function (position) {
