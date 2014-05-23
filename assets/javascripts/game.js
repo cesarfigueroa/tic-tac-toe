@@ -43,12 +43,12 @@ Game.prototype.isDraw = function () {
   return this.board.isFull() && !this.isWon();
 };
 
-Game.prototype.isOngoing = function () {
-  return !(this.isDraw() || this.isWon());
+Game.prototype.isOver = function () {
+  return this.isDraw() || this.isWon();
 };
 
-Game.prototype.isOver = function () {
-  return !this.isOngoing();
+Game.prototype.isOngoing = function () {
+  return !this.isOver();
 };
 
 Game.prototype.bindEvents = function () {
