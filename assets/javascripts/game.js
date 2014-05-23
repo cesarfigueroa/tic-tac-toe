@@ -62,7 +62,7 @@ Game.prototype.bindEvents = function () {
   }.bind(this));
 
   window.addEventListener('resize', function () {
-    this.actuator.render();
+    this.actuator.adjustSpacing();
   }.bind(this));
 };
 
