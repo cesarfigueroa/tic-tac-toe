@@ -43,7 +43,7 @@ Board.prototype.swapPlayers = function () {
 };
 
 Board.prototype.reset = function () {
-  this.cells = [null, null, null, null, null, null, null, null, null]; // 9
+  this.cells = this.cells.map(function () { return null; });
   this.swapPlayers();
 };
 
