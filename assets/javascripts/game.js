@@ -21,6 +21,11 @@ Game.prototype.setup = function () {
   this.actuator.render();
 };
 
+Game.prototype.teardown = function () {
+  this.board.reset();
+  this.actuator.reset();
+};
+
 Game.prototype.play = function (position) {
   if (position && this.board.isEmpty(position) && this.isOngoing()) {
     this.board.setCell(position);
@@ -72,7 +77,6 @@ Game.prototype.dispatchEvents = function () {
 };
 
 Game.prototype.restart = function () {
-  this.board.reset();
-  this.actuator.reset();
+  this.teardown();
   this.setup();
 };
