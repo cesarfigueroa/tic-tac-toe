@@ -1,4 +1,5 @@
-function Actuator (board) {
+function Actuator (game, board) {
+  this.game = game;
   this.board = board;
 
   this.markup = {
@@ -10,6 +11,24 @@ function Actuator (board) {
 };
 
 Actuator.prototype.bindEvents = function () {
+  this.markup.board.addEventListener('click', function (event) {
+    if (this.game.isOngoing()) {
+      this.game.play(event.target.dataset.position);
+    }
+  }.bind(this));
+
+  this.markup.board.addEventListener('touchend', function (event) {
+    event.preventDefault();
+
+    if (this.game.isOngoing()) {
+      this.game.play(event.target.dataset.position);
+    }
+  }.bind(this));
+
+  window.addEventListener('resize', function () {
+    this.adjustSpacing();
+  }.bind(this));
+
   window.addEventListener('draw', function () {
     this.markup.board.classList.add('message', 'draw');
   }.bind(this));

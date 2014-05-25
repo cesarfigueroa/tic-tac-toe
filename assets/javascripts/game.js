@@ -1,7 +1,7 @@
 function Game () {
   this.board = new Board;
   this.strategy = new Strategy(this.board);
-  this.actuator = new Actuator(this.board);
+  this.actuator = new Actuator(this, this.board);
 
   this.events = {
     loss: new Event('loss'),
@@ -12,12 +12,8 @@ function Game () {
     isFirst: false
   };
 
-  this.markup = {
-    board: document.getElementById('board')
-  };
 
   this.setup();
-  this.bindEvents();
 }
 
 Game.prototype.setup = function () {
@@ -62,22 +58,6 @@ Game.prototype.isOver = function () {
 
 Game.prototype.isOngoing = function () {
   return !this.isOver();
-};
-
-Game.prototype.bindEvents = function () {
-  this.markup.board.addEventListener('click', function (event) {
-    if (this.isOngoing()) { this.play(event.target.dataset.position); }
-    else if (this.isOver()) { this.restart(); }
-  }.bind(this));
-
-  this.markup.board.addEventListener('touchend', function (event) {
-    event.preventDefault();
-    this.play(event.target.dataset.position);
-  }.bind(this));
-
-  window.addEventListener('resize', function () {
-    this.actuator.adjustSpacing();
-  }.bind(this));
 };
 
 Game.prototype.dispatchEvents = function () {
