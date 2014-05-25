@@ -3,23 +3,19 @@ function Game () {
   this.strategy = new Strategy(this.board);
   this.actuator = new Actuator(this, this.board);
 
-  this.settings = {
-    isFirst: false
-  };
-
-
-  this.setup();
+  this.initialize('computer');
 }
 
-Game.prototype.setup = function () {
-  if (this.settings.isFirst) {
-    this.board.setInitialPlayer('human');
-  } else {
-    this.board.setInitialPlayer('computer');
-    this.strategy.initialMove();
-  }
+Game.prototype.initialize = function (initialPlayer) {
+  this.board.setInitialPlayer(initialPlayer);
+  this.setup();
+};
 
-  this.actuator.render();
+Game.prototype.setup = function () {
+  if (this.board.player == this.board.players.computer) {
+    this.strategy.initialMove();
+    this.actuator.render();
+  }
 };
 
 Game.prototype.teardown = function () {
@@ -54,7 +50,7 @@ Game.prototype.isOngoing = function () {
   return !this.isOver();
 };
 
-Game.prototype.restart = function () {
+Game.prototype.restart = function (initialPlayer) {
   this.teardown();
-  this.setup();
+  this.initialize(initialPlayer);
 };
