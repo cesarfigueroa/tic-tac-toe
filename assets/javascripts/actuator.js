@@ -25,7 +25,7 @@ Actuator.prototype.render = function () {
 };
 
 Actuator.prototype.updateCells = function () {
-  [].map.call(this.markup.cells, function (element, index) {
+  Array.prototype.map.call(this.markup.cells, function (element, index) {
     if (this.board.isOccupied(index)) {
       element.classList.add('occupied', this.board.getCell(index));
       element.textContent = this.board.getCell(index);
@@ -34,7 +34,7 @@ Actuator.prototype.updateCells = function () {
 };
 
 Actuator.prototype.adjustSpacing = function () {
-  [].map.call(this.markup.cells, function (element) {
+  Array.prototype.map.call(this.markup.cells, function (element) {
     element.style.height = element.scrollWidth + 'px';
   });
 };
@@ -49,7 +49,7 @@ Actuator.prototype.clearMessage = function () {
 };
 
 Actuator.prototype.clearCells = function () {
-  [].map.call(this.markup.cells, function (element) {
+  Array.prototype.map.call(this.markup.cells, function (element) {
     element.classList.remove('occupied', 'x', 'o');
     element.textContent = null;
   });
