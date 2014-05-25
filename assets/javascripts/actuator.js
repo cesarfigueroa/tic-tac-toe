@@ -5,6 +5,10 @@ function Actuator (game, board) {
   this.markup = {
     board: document.getElementById('board'),
     cells: document.getElementsByClassName('cell')
+
+  this.events = {
+    loss: new Event('loss'),
+    draw: new Event('draw')
   };
 
   this.bindEvents();
@@ -44,6 +48,7 @@ Actuator.prototype.bindCustomEvents = function () {
 Actuator.prototype.render = function () {
   this.updateCells();
   this.adjustSpacing();
+  this.dispatchEvents();
 };
 
 Actuator.prototype.updateCells = function () {
@@ -59,6 +64,14 @@ Actuator.prototype.adjustSpacing = function () {
   Array.prototype.map.call(this.markup.cells, function (element) {
     element.style.height = element.scrollWidth + 'px';
   });
+};
+
+Actuator.prototype.dispatchEvents = function () {
+  if (this.game.isWon()) {
+    window.dispatchEvent(this.events.loss);
+  } else if (this.game.isDraw()) {
+    window.dispatchEvent(this.events.draw);
+  }
 };
 
 Actuator.prototype.reset = function () {

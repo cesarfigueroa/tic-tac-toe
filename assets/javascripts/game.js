@@ -3,11 +3,6 @@ function Game () {
   this.strategy = new Strategy(this.board);
   this.actuator = new Actuator(this, this.board);
 
-  this.events = {
-    loss: new Event('loss'),
-    draw: new Event('draw')
-  };
-
   this.settings = {
     isFirst: false
   };
@@ -37,7 +32,6 @@ Game.prototype.play = function (position) {
     this.board.setCell(position);
     this.strategy.strategize();
     this.actuator.render();
-    this.dispatchEvents();
   }
 };
 
@@ -58,14 +52,6 @@ Game.prototype.isOver = function () {
 
 Game.prototype.isOngoing = function () {
   return !this.isOver();
-};
-
-Game.prototype.dispatchEvents = function () {
-  if (this.isWon()) {
-    window.dispatchEvent(this.events.loss);
-  } else if (this.isDraw()) {
-    window.dispatchEvent(this.events.draw);
-  }
 };
 
 Game.prototype.restart = function () {
