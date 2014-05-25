@@ -12,10 +12,6 @@ function Board () {
     computer: new Player('x'),
     human: new Player('o')
   };
-
-  this.markup = {
-    cells: document.getElementsByClassName('cell')
-  };
 }
 
 Board.prototype.getCell = function (position) {
