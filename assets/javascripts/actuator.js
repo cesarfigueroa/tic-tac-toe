@@ -8,6 +8,7 @@ function Actuator (game, board) {
   };
 
   this.bindEvents();
+  this.bindCustomEvents();
 };
 
 Actuator.prototype.bindEvents = function () {
@@ -28,7 +29,9 @@ Actuator.prototype.bindEvents = function () {
   window.addEventListener('resize', function () {
     this.adjustSpacing();
   }.bind(this));
+}
 
+Actuator.prototype.bindCustomEvents = function () {
   window.addEventListener('draw', function () {
     this.markup.board.classList.add('message', 'draw');
   }.bind(this));
