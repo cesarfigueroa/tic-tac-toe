@@ -81,8 +81,11 @@ Game.prototype.bindEvents = function () {
 };
 
 Game.prototype.dispatchEvents = function () {
-  if (this.isWon()) { window.dispatchEvent(this.events.loss); }
-  else if (this.isDraw()) { window.dispatchEvent(this.events.draw); }
+  if (this.isWon()) {
+    window.dispatchEvent(this.events.loss);
+  } else if (this.isDraw()) {
+    window.dispatchEvent(this.events.draw);
+  }
 };
 
 Game.prototype.restart = function () {

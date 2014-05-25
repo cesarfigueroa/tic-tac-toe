@@ -49,7 +49,9 @@ Board.prototype.setInitialPlayer = function (player) {
 };
 
 Board.prototype.reset = function () {
-  this.cells = this.cells.map(function () { return null; });
+  this.cells = this.cells.map(function () {
+    return null;
+  });
 };
 
 Board.prototype.isOccupied = function (position) {

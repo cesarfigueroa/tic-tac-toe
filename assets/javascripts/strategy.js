@@ -28,11 +28,17 @@ function Strategy (board) {
 }
 
 Strategy.prototype.strategize = function () {
-  if (this.canWin()) { this.win(); }
-  else if (this.canBlock()) { this.block(); }
-  else if (this.isCenterAvailable()) { this.moveToCenter(); }
-  else if (this.isOpposingCornerAvailable()) { this.moveToOpposingCorner(); }
-  else { this.markStrategicPosition(); }
+  if (this.canWin()) {
+    this.win();
+  } else if (this.canBlock()) {
+    this.block();
+  } else if (this.isCenterAvailable()) {
+    this.moveToCenter();
+  } else if (this.isOpposingCornerAvailable()) {
+    this.moveToOpposingCorner();
+  } else {
+    this.markStrategicPosition();
+  }
 };
 
 Strategy.prototype.initialMove = function () {
