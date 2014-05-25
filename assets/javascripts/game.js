@@ -37,13 +37,11 @@ Game.prototype.teardown = function () {
 };
 
 Game.prototype.play = function (position) {
-  if (position && this.board.isEmpty(position) && this.isOngoing()) {
+  if (position && this.board.isEmpty(position)) {
     this.board.setCell(position);
     this.strategy.strategize();
     this.actuator.render();
     this.dispatchEvents();
-  } else if (this.isOver()) {
-    this.restart();
   }
 };
 
@@ -68,7 +66,8 @@ Game.prototype.isOngoing = function () {
 
 Game.prototype.bindEvents = function () {
   this.markup.board.addEventListener('click', function (event) {
-    this.play(event.target.dataset.position);
+    if (this.isOngoing()) { this.play(event.target.dataset.position); }
+    else if (this.isOver()) { this.restart(); }
   }.bind(this));
 
   this.markup.board.addEventListener('touchend', function (event) {
