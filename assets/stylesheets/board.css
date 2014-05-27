@@ -1,7 +1,4 @@
 #board {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
   border-collapse: collapse;
   border-spacing: 0;
   overflow: hidden;
