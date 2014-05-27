@@ -3,8 +3,8 @@ function Actuator (game, board) {
   this.board = board;
 
   this.markup = {
-    board: document.getElementById('board'),
-    cells: document.getElementsByClassName('cell')
+    board: document.querySelector('#board'),
+    cells: document.querySelectorAll('.cell')
 
   this.events = {
     loss: new Event('loss'),
