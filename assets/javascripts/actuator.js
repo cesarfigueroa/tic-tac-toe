@@ -4,7 +4,10 @@ function Actuator (game, board) {
 
   this.markup = {
     board: document.querySelector('#board'),
-    cells: document.querySelectorAll('.cell')
+    cells: document.querySelectorAll('.cell'),
+    overlay: document.querySelector('.overlay'),
+    title: document.querySelector('.overlay-title')
+  };
 
   this.events = {
     loss: new Event('loss'),
@@ -30,6 +33,12 @@ Actuator.prototype.bindEvents = function () {
     }
   }.bind(this));
 
+  this.markup.overlay.addEventListener('click', function (event) {
+    if (event.target.tagName.toLowerCase() == 'button') {
+      this.game.restart(event.target.value);
+    }
+  }.bind(this));
+
   window.addEventListener('resize', function () {
     this.adjustSpacing();
   }.bind(this));
@@ -37,11 +46,13 @@ Actuator.prototype.bindEvents = function () {
 
 Actuator.prototype.bindCustomEvents = function () {
   window.addEventListener('draw', function () {
-    this.markup.board.classList.add('message', 'draw');
+    this.markup.overlay.classList.add('open');
+    this.markup.title.textContent = 'It’s a tie! Play again?';
   }.bind(this));
 
   window.addEventListener('loss', function () {
-    this.markup.board.classList.add('message', 'loss');
+    this.markup.overlay.classList.add('open');
+    this.markup.title.textContent = 'You lose. Play again?';
   }.bind(this));
 };
 
@@ -80,7 +91,7 @@ Actuator.prototype.reset = function () {
 };
 
 Actuator.prototype.clearMessage = function () {
-  this.markup.board.classList.remove('message', 'loss', 'draw');
+  this.markup.overlay.classList.remove('open');
 };
 
 Actuator.prototype.clearCells = function () {

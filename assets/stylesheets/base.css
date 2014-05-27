@@ -11,6 +11,7 @@ body {
 main[role="main"] {
   -moz-user-select: none;
   -webkit-user-select: none;
+  position: relative;
   user-select: none;
 }
 

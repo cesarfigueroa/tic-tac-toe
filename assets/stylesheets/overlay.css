@@ -1,0 +1,82 @@
+.overlay {
+  -moz-transform: translate3d(0, 0, 0) scale(0.96);
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0) scale(0.96);
+  -webkit-transition: all 0.4s ease-in-out;
+  height: 100%;
+  max-width: 648px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate3d(0, 0, 0) scale(0.96);
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+}
+
+.overlay.open {
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.overlay-inner {
+  margin-top: -72px;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+/* Message */
+
+.overlay-title {
+  display: block;
+  font-size: 2.93625em;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 1px 1px 4px #D0D2D6, 0 0 72px white;
+}
+
+/* Controls */
+
+.overlay-controls {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.overlay-controls li { display: inline-block; }
+
+/* Buttons */
+
+.overlay-button {
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font: inherit;
+  line-height: normal;
+  outline: 0;
+  padding: 1em 2em;
+}
+
+.overlay-button.human {
+  background: #1A8DE6;
+  box-shadow: 2px 2px 0 #177ecf;
+}
+
+.overlay-button.computer {
+  background: #EC0000;
+  box-shadow: 2px 2px 0 #d10000;
+}
+
+@media all and (max-width: 648px) {
+  .overlay-title {
+    font-size: 7.25vw;
+  }
+}

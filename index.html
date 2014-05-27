@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/stylesheets/base.css" />
     <link rel="stylesheet" href="assets/stylesheets/board.css" />
     <link rel="stylesheet" href="assets/stylesheets/cell.css" />
+    <link rel="stylesheet" href="assets/stylesheets/overlay.css" />
 
     <link rel="prefetch" href="assets/images/naught.svg" />
 
@@ -51,6 +52,17 @@
           </tr>
         </tbody>
       </table>
+
+      <div class="overlay">
+        <div class="overlay-inner">
+          <h2 class="overlay-title">Play Again?</h2>
+
+          <ul class="overlay-controls">
+            <li><button class="overlay-button human" value="human">Go First</button></li>
+            <li><button class="overlay-button computer" value="computer">Go Next</button></li>
+          </ul>
+        </div>
+      </div>
     </main>
   </body>
 </html>
