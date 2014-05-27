@@ -3,6 +3,7 @@
   background-repeat: no-repeat;
   background-size: calc(100% / 3);
   height: 216px;
+  opacity: 0;
   overflow: hidden;
   padding: 0;
   text-indent: -100%;
@@ -19,6 +20,13 @@
 
 .cell.x { background-image: url('../images/cross.svg'); }
 .cell.o { background-image: url('../images/naught.svg'); }
+
+/* Occupied Cells */
+
+.cell.occupied {
+  -webkit-transition: opacity 0.15s ease-in;
+  opacity: 1;
+}
 
 /* Unoccupied Cells */
 
